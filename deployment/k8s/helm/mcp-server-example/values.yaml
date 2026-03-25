@@ -34,14 +34,14 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
   hosts:
-    - host: mcp-server-example.jecklgamis.com
+    - host: mcp-server-1.jecklgamis.com
       paths:
         - path: /
           pathType: Prefix
   tls:
-    - secretName: mcp-server-example
+    - secretName: mcp-server-1
       hosts:
-        - mcp-server-example.jecklgamis.com
+        - mcp-server-1.jecklgamis.com
 
 resources: { }
 
