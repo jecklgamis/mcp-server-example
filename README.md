@@ -1,5 +1,7 @@
 # mcp-server-example
 
+[![Build](https://github.com/jecklgamis/mcp-server-example/actions/workflows/build.yaml/badge.svg)](https://github.com/jecklgamis/mcp-server-example/actions/workflows/build.yaml)
+
 A FastAPI MCP (Model Context Protocol) math server built with [FastMCP](https://github.com/jlowin/fastmcp).
 
 ## Tools
