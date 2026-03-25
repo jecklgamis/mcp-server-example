@@ -3,6 +3,15 @@ from fastmcp import FastMCP
 mcp = FastMCP("Math Server", instructions="A math utility server.")
 
 
+@mcp.custom_route("/", methods=["GET"])
+async def root(request):
+    from starlette.responses import JSONResponse
+
+    return JSONResponse(
+        {"app_name": "mcp-server-example", "message": "It works on my machine!"}
+    )
+
+
 @mcp.tool()
 def add(a: float, b: float) -> float:
     """Add two numbers."""
