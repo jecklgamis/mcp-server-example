@@ -36,6 +36,18 @@ The server starts on `http://localhost:8080` with:
 - REST API endpoints at `/add`, `/subtract`, `/multiply`, `/divide`, `/power`, `/sqrt`, `/modulo`, `/factorial`
 - API docs at `/docs`
 
+### Run Client
+
+The client uses a LangChain agent to interact with the MCP server. Configure the LLM provider via the `LLM_PROVIDER` env var (`ollama`, `openai`, `gemini`). Defaults to `ollama`.
+
+```bash
+python client.py
+```
+
+```bash
+LLM_PROVIDER=openai python client.py
+```
+
 ### Run with Docker
 
 ```bash
