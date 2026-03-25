@@ -17,6 +17,18 @@ A FastAPI MCP (Model Context Protocol) math server built with [FastMCP](https://
 | `modulo`    | Calculate a mod b                              |
 | `factorial` | Calculate the factorial of a non-negative integer |
 
+## Project Structure
+
+```
+server.py          — MCP server with math tool definitions
+client.py          — Interactive LangChain agent client
+llm_factory.py     — LLM provider factory (ollama, openai, gemini)
+requirements.txt   — Python dependencies
+Dockerfile         — Container image definition
+Makefile           — Build and run shortcuts
+deployment/        — Helm chart for Kubernetes deployment
+```
+
 ## Getting Started
 
 ### Requirements
@@ -81,3 +93,21 @@ helm install mcp-server-example ./mcp-server-example
 cd deployment/k8s/helm
 make upgrade
 ```
+
+## Makefile Targets
+
+| Target              | Description                        |
+|---------------------|------------------------------------|
+| `install-deps`      | Install Python dependencies        |
+| `image`             | Build Docker image                 |
+| `run`               | Run Docker container               |
+| `run-shell`         | Start a shell in a new container   |
+| `exec-shell`        | Exec into a running container      |
+| `check`             | Run tests with pytest              |
+| `run-smoke-tests`   | Run smoke tests                    |
+| `clean`             | Remove generated files             |
+| `up`                | Build and run (`check` + `image` + `run`) |
+
+## CI/CD
+
+The GitHub Actions [workflow](.github/workflows/build.yaml) runs on pushes to `main` and on pull requests. It builds the project with Python 3.13 and pushes a Docker image to Docker Hub on non-PR events.
