@@ -28,16 +28,18 @@ A FastAPI MCP (Model Context Protocol) server built with [FastMCP](https://githu
 ## Project Structure
 
 ```
-server.py              — FastAPI app entry point with REST routes and MCP mount
-math_mcp_server.py     — Math MCP server with tool definitions
-perf_mcp_server.py     — Perf MCP server with load testing tool
-math_mcp_client.py     — Interactive LangChain agent client (math)
-perf_mcp_client.py     — Interactive LangChain agent client (perf)
-llm_factory.py         — LLM provider factory (ollama, openai, gemini)
-requirements.txt       — Python dependencies
-Dockerfile             — Container image definition
-Makefile               — Build and run shortcuts
-deployment/            — Helm chart for Kubernetes deployment
+server.py                — FastAPI app entry point with REST routes and MCP mount
+server/                  — MCP server definitions
+  math_tools.py          — Math MCP server with tool definitions
+  perf_tools.py          — Perf MCP server with load testing tool
+client/                  — LangChain agent clients
+  math_client.py         — Interactive LangChain agent client (math)
+  perf_client.py         — Interactive LangChain agent client (perf)
+  llm_factory.py         — LLM provider factory (ollama, openai, gemini)
+requirements.txt         — Python dependencies
+Dockerfile               — Container image definition
+Makefile                 — Build and run shortcuts
+deployment/              — Helm chart for Kubernetes deployment
 ```
 
 ## Getting Started
@@ -78,15 +80,15 @@ Supported LLM providers:
 | `gemini` | `gemini-2.5-flash` |
 
 ```bash
-python math_mcp_client.py
+python -m client.math_client
 ```
 
 ```bash
-python perf_mcp_client.py
+python -m client.perf_client
 ```
 
 ```bash
-LLM_PROVIDER=openai python math_mcp_client.py
+LLM_PROVIDER=openai python -m client.math_client
 ```
 
 ### Run with Docker

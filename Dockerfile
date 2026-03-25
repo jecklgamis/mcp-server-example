@@ -6,8 +6,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY server.py .
-COPY math_mcp_server.py .
-COPY perf_mcp_server.py .
+COPY server/ server/
 
 EXPOSE 8080
 

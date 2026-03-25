@@ -3,8 +3,8 @@ from contextlib import asynccontextmanager
 import uvicorn
 from fastapi import FastAPI
 
-from math_mcp_server import math_tools, mcp
-from perf_mcp_server import mcp as perf_mcp, perf_tools
+from server.math_tools import math_tools, mcp
+from server.perf_tools import mcp as perf_mcp, perf_tools
 
 math_mcp_app = mcp.http_app(path="/")
 perf_mcp_app = perf_mcp.http_app(path="/")

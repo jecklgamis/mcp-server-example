@@ -15,11 +15,13 @@ This is a FastAPI MCP (Model Context Protocol) server built with FastMCP. It exp
 ## Project Structure
 
 - `server.py` — FastAPI app entry point with REST routes and MCP mount
-- `math_mcp_server.py` — Math MCP server with tool definitions
-- `perf_mcp_server.py` — Perf MCP server with load testing tool
-- `math_mcp_client.py` — LangChain agent client for math MCP
-- `perf_mcp_client.py` — LangChain agent client for perf MCP
-- `llm_factory.py` — LLM provider factory (ollama, openai, gemini)
+- `server/` — MCP server definitions
+  - `math_tools.py` — Math MCP server with tool definitions
+  - `perf_tools.py` — Perf MCP server with load testing tool
+- `client/` — LangChain agent clients
+  - `math_client.py` — LangChain agent client for math MCP
+  - `perf_client.py` — LangChain agent client for perf MCP
+  - `llm_factory.py` — LLM provider factory (ollama, openai, gemini)
 - `requirements.txt` — Pinned Python dependencies
 - `Dockerfile` — Container image definition (port 8080)
 - `.github/workflows/build.yaml` — CI/CD pipeline (build, test, Docker push)
