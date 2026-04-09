@@ -55,7 +55,7 @@ pip install -r requirements.txt
 python server.py
 ```
 
-The server starts on `http://localhost:8080` with:
+The server starts on `http://localhost:58080` with:
 - Root endpoint at `/` listing available endpoints
 - Math MCP endpoint at `/math_mcp` (streamable-http transport)
 - Perf MCP endpoint at `/perf-mcp` (streamable-http transport)
@@ -69,7 +69,7 @@ The client uses a LangChain agent to interact with the MCP server via an interac
 | Env Var          | Description              | Default                   |
 |------------------|--------------------------|---------------------------|
 | `LLM_PROVIDER`  | LLM provider to use      | `ollama`                  |
-| `MCP_SERVER_URL` | MCP server base URL      | `http://localhost:8080`   |
+| `MCP_SERVER_URL` | MCP server base URL      | `http://localhost:58080`   |
 
 Supported LLM providers:
 
@@ -95,7 +95,7 @@ LLM_PROVIDER=openai python -m client.math_client
 
 ```bash
 docker build -t mcp-server-example .
-docker run -p 8080:8080 mcp-server-example
+docker run -p 58080:58080 mcp-server-example
 ```
 
 ### Deploy with Helm

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a FastAPI MCP (Model Context Protocol) server built with FastMCP. It exposes math and performance testing tools over streamable-http transport on port 8080. Includes LangChain-based clients for interacting with the server via an LLM agent.
+This is a FastAPI MCP (Model Context Protocol) server built with FastMCP. It exposes math and performance testing tools over streamable-http transport on port 58080. Includes LangChain-based clients for interacting with the server via an LLM agent.
 
 ## Tech Stack
 
@@ -23,7 +23,7 @@ This is a FastAPI MCP (Model Context Protocol) server built with FastMCP. It exp
   - `perf_client.py` — LangChain agent client for perf MCP
   - `llm_factory.py` — LLM provider factory (ollama, openai, gemini)
 - `requirements.txt` — Pinned Python dependencies
-- `Dockerfile` — Container image definition (port 8080)
+- `Dockerfile` — Container image definition (port 58080)
 - `.github/workflows/build.yaml` — CI/CD pipeline (build, test, Docker push)
 - `deployment/k8s/helm/mcp-server-example/` — Helm chart for Kubernetes deployment
 
@@ -38,5 +38,5 @@ python server.py
 
 ```bash
 docker build -t mcp-server-example .
-docker run -p 8080:8080 mcp-server-example
+docker run -p 58080:58080 mcp-server-example
 ```

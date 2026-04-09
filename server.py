@@ -50,4 +50,4 @@ app.mount("/math_mcp", math_mcp_app)
 app.mount("/perf-mcp", perf_mcp_app)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run(app, host="0.0.0.0", port=58080)

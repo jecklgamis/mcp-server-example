@@ -9,7 +9,7 @@ from mcp.client.streamable_http import streamable_http_client
 
 
 async def main():
-    base_url = os.environ.get("MCP_SERVER_URL", "http://localhost:8080")
+    base_url = os.environ.get("MCP_SERVER_URL", "http://localhost:58080")
     provider = os.environ.get("LLM_PROVIDER","ollama")
     async with streamable_http_client(f"{base_url}/math_mcp/") as (read, write, _):
         async with ClientSession(read, write) as session:

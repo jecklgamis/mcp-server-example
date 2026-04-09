@@ -7,7 +7,7 @@ install-deps:
 image:
 	 docker build -t $(IMAGE_NAME) .
 run:
-	 @docker run -p 8080:8080 -it $(IMAGE_NAME)
+	 @docker run -p 58080:58080 -it $(IMAGE_NAME)
 run-shell:
 	 @docker run -it $(IMAGE_NAME) /bin/bash
 exec-shell:

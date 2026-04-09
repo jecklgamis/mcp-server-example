@@ -8,7 +8,7 @@ mcp = FastMCP("Perf Server", instructions="A performance testing utility server.
 
 
 async def _run_perf_test(
-    url: str = "http://localhost:8080",
+    url: str = "http://localhost:58080",
     num_requests: int = 100,
     concurrency: int = 10,
 ) -> dict:
