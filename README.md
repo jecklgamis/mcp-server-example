@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/jecklgamis/mcp-server-example/actions/workflows/build.yaml/badge.svg)](https://github.com/jecklgamis/mcp-server-example/actions/workflows/build.yaml)
 
-A FastAPI MCP (Model Context Protocol) server built with [FastMCP](https://github.com/jlowin/fastmcp). Exposes math and performance testing tools over streamable-http transport.
+A FastAPI MCP (Model Context Protocol) server built with [FastMCP](https://github.com/jlowin/fastmcp). Exposes math tools over streamable-http transport.
 
 ## MCP Tools
 
@@ -18,12 +18,8 @@ A FastAPI MCP (Model Context Protocol) server built with [FastMCP](https://githu
 | `sqrt`      | Calculate the square root of a number          |
 | `modulo`    | Calculate a mod b                              |
 | `factorial` | Calculate the factorial of a non-negative integer |
-
-### Perf (`/perf-mcp`)
-
-| Tool             | Description                                         |
-|------------------|-----------------------------------------------------|
-| `run_perf_test`  | Run a load test against a URL with concurrent requests |
+| `discriminant` | Calculate the discriminant `b² - 4ac` of `ax² + bx + c` |
+| `solve_quadratic` | Solve `ax² + bx + c = 0`; returns the discriminant, number of real roots, and the roots (complex roots as strings like `"-1.0+2.0i"`) |
 
 ## Project Structure
 
@@ -31,10 +27,8 @@ A FastAPI MCP (Model Context Protocol) server built with [FastMCP](https://githu
 server.py                — FastAPI app entry point with REST routes and MCP mount
 server/                  — MCP server definitions
   math_tools.py          — Math MCP server with tool definitions
-  perf_tools.py          — Perf MCP server with load testing tool
 client/                  — LangChain agent clients
   math_client.py         — Interactive LangChain agent client (math)
-  perf_client.py         — Interactive LangChain agent client (perf)
   llm_factory.py         — LLM provider factory (ollama, openai, gemini)
 requirements.txt         — Python dependencies
 Dockerfile               — Container image definition
@@ -58,8 +52,7 @@ python server.py
 The server starts on `http://localhost:58080` with:
 - Root endpoint at `/` listing available endpoints
 - Math MCP endpoint at `/math_mcp` (streamable-http transport)
-- Perf MCP endpoint at `/perf-mcp` (streamable-http transport)
-- REST API endpoints at `/add`, `/subtract`, `/multiply`, `/divide`, `/power`, `/sqrt`, `/modulo`, `/factorial`, `/run_perf_test`
+- REST API endpoints at `/add`, `/subtract`, `/multiply`, `/divide`, `/power`, `/sqrt`, `/modulo`, `/factorial`, `/discriminant`, `/solve_quadratic`
 - API docs at `/docs`
 
 ### Run Client
@@ -79,12 +72,10 @@ Supported LLM providers:
 | `openai` | `gpt-4.1`          |
 | `gemini` | `gemini-2.5-flash` |
 
-```bash
-python -m client.math_client
-```
+> **Known issue:** `fastmcp` requires `mcp` 2.x, while `langchain-mcp-adapters` 0.3.2 requires `mcp<2`, so the adapters are pinned to 0.3.1. That version still imports the mcp 1.x layout (`mcp.server.fastmcp`), so the LangChain client (`python -m client.*`) fails to import until an adapters release supports mcp 2.x. The server is unaffected.
 
 ```bash
-python -m client.perf_client
+python -m client.math_client
 ```
 
 ```bash
