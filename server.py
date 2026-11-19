@@ -30,7 +30,7 @@ async def root():
         "message": "It works on my machine!",
         "endpoints": {
             "docs": "/docs",
-            "math_mcp": "/math_mcp",
+            "math_mcp": "/math-mcp",
         },
     }
 
@@ -39,7 +39,7 @@ async def root():
 for tool_fn in math_tools:
     app.get(f"/{tool_fn.__name__.lstrip('_')}", tags=["math"])(tool_fn)
 
-app.mount("/math_mcp", math_mcp_app)
+app.mount("/math-mcp", math_mcp_app)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=58080)

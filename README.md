@@ -6,7 +6,7 @@ A FastAPI MCP (Model Context Protocol) server built with [FastMCP](https://githu
 
 ## MCP Tools
 
-### Math (`/math_mcp`)
+### Math (`/math-mcp`)
 
 | Tool        | Description                                    |
 |-------------|------------------------------------------------|
@@ -51,7 +51,7 @@ python server.py
 
 The server starts on `http://localhost:58080` with:
 - Root endpoint at `/` listing available endpoints
-- Math MCP endpoint at `/math_mcp` (streamable-http transport)
+- Math MCP endpoint at `/math-mcp` (streamable-http transport)
 - REST API endpoints at `/add`, `/subtract`, `/multiply`, `/divide`, `/power`, `/sqrt`, `/modulo`, `/factorial`, `/discriminant`, `/solve_quadratic`
 - API docs at `/docs`
 
